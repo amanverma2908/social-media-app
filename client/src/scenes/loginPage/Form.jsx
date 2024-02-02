@@ -17,7 +17,6 @@ import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
-console.log(backendUrl);
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
