@@ -38,6 +38,8 @@ const MyPostWidget = ({ picturePath }) => {
   const medium = palette.neutral.medium;
 
   const handlePost = async () => {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
     const formData = new FormData();
     formData.append("userId", _id);
     formData.append("description", post);
@@ -46,7 +48,7 @@ const MyPostWidget = ({ picturePath }) => {
       formData.append("picturePath", image.name);
     }
 
-    const response = await fetch(`http://localhost:3001/posts`, {
+    const response = await fetch(`${backendUrl}/posts`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
